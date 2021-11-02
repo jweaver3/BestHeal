@@ -1,8 +1,8 @@
 # DeepHealing
 Deep healing is an app which aims to classify post-operative wounds, identify abnormal healing, and identify MRSA using photos taken with a cell phone  
 # License 
-The author of this work hereby waives all claim of copyright (economic and moral) in this work - with exception of included work which is a derivative of previous works in which case it retains the previous attributed licence  -  and **immediately** places it in the public domain; it may be used, distorted, or destroyed in any manner whatsoever with or with out without further attribution or notice to the creator. 
-# Auther
+The author of this work hereby waives all claim of copyright (economic and moral) in this work - with exception of included work which is a derivative of previous works in which case it retains the previous attributed licence  -  and **immediately** places it in the public domain; it may be used, distorted, distributed, computed, or destroyed in any manner whatsoever with or without further attribution or notice to the creator. 
+# Author
 Should you wish to attribute the author please credit, 
 Joseph Weaver 
 Affiliations;
