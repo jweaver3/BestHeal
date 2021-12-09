@@ -9,8 +9,14 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "html/index.html"
+        "destination": "html/login.html"
       }
     ]
+  },
+  "emulators": {
+    "hosting": {
+      "host": "127.0.0.5",
+      "port": "5000"
+    }
   }
 }

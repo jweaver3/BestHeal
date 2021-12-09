@@ -5,17 +5,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href = "login.css"/>
+    <link rel="stylesheet" href = "./login.css"/>
+    <script type='module'>
+       // Import the functions you need from the SDKs you need
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
+import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js';
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChange, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDrDUgsi3s4o8jMoaM7VyiymWNntZWJcnY",
+  authDomain: "bestheal-cc891.firebaseapp.com",
+  databaseURL: "https://bestheal-cc891-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "bestheal-cc891",
+  storageBucket: "bestheal-cc891.appspot.com",
+  messagingSenderId: "215053393834",
+  appId: "1:215053393834:web:c338198b7aea873d0755d3",
+  measurementId: "G-MJK5PB4J7F"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseConfig)
+const analytics = getAnalytics(app);
+//create a user if loged in
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+  
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+//google login from popup
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+   
+  });
+
+// Detect if user is logged in
+
+onAuthStateChange(auth, user => {
+    if(user != null){
+        window.location.replace("https://bestheal-cc891.firebaseapp.com/index.html");
+        const uid = user.uid;
+    } else {
+        window.location.replace("https://bestheal-cc891.firebaseapp.com/login.html");
+    
+    }
+});
+function login(){
+    var userEmail = document.getElementById("email_field").value;
+    var userPass = document.getElementById("password_field").value;
+
+    window.alert(userPass + " " + userPass);
+};
+    </script>
 </head>
 <body>
     <div class="login-twothird"></div>
     <div class="login-onethird">
      <p id="message">BestHeal Login</p> 
      <div id = "login">
-     <input type ="email" placeholder="Work Email"><br>
-      <input type = "password" placeholder="Password"><br>
+     <input type ="email" placeholder="Work Email" id='email_field'><br>
+      <input type = "password" placeholder="Password" id='password_field'><br>
      </div>
-        <button id = "submit">Login Via Email</button>
+        <button onclick = "login()" id = "submit">Login Via Email</button>
     </div>
     
 </body>
