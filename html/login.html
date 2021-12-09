@@ -79,7 +79,10 @@ function login(){
     var userPass = document.getElementById("password_field").value;
 
     window.alert(userPass + " " + userPass);
-};
+}
+function logout(){
+  firebase.auth().signOut();
+}
     </script>
 </head>
 <body>
